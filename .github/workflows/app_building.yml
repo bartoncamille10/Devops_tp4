@@ -1,0 +1,21 @@
+name: Workflow to build the app
+
+# Define when the workflow should be triggered
+
+on:
+  push:
+    branches:
+      - */*
+
+# Define jobs for the workflow
+jobs:
+# Job: Build
+  build:
+    runs-on: alpine-latest
+# Steps for the build job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Checkout code
+        uses: actions/setup-node@v4
