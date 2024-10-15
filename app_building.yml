@@ -1,0 +1,42 @@
+name: Wrokflow to build the app
+
+# Define when the workflow should be triggered
+
+on:
+  push:
+    branches:
+      - main
+
+# Define jobs for the workflow
+jobs:
+# Job: Build
+  build:
+    runs-on: alpine-latest
+# Steps for the build job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Checkout code
+        uses: actions/setup-node@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 14
+          
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build
+        run: npm run build
+      
+      - name: "${{ env.$ghpages }}"
+        run: ghpages =requires('gh-pages');
+        run: ghpages.publish('dist', function(err) {});
+        run: ghpages.publish(dir, callback);
+        run:
+      
+      - name: Build
+        run: npx create-next-app@latest
+        run: yarn add react-chrome-dino
