@@ -1,11 +1,11 @@
-name: Wrokflow to build the app
+name: Workflow to deploy the app
 
 # Define when the workflow should be triggered
 
 on:
   push:
     branches:
-      - main
+      - */*
 
 # Define jobs for the workflow
 jobs:
@@ -13,8 +13,7 @@ jobs:
   build:
     runs-on: alpine-latest
 # Steps for the build job
-    steps:
-      
+    steps: 
       - name: upload pages
         uses: actions/upload-pages-artifact@v2
       - name: deploy pages
